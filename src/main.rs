@@ -157,7 +157,7 @@ fn keymap(sdl_key: sdl2::keyboard::Keycode) -> Key {
 fn init_window() -> Result<(Canvas, EventPump)> {
 	let context = sdl2::init()?;
 	let video = context.video()?;
-	let window = video.window("game", 1920*2/3, 1080*2/3).position_centered().build()?;
+	let window = video.window("game", 1920 / 2, 1080 / 2).resizable().position_centered().build()?;
 	match window.into_canvas().present_vsync().build() {
 		Ok(c) => Ok((c, context.event_pump()?)),
 		Err(e) => Err(Box::new(e)),
